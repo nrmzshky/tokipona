@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+  <html lang="en"> // Set language to English in HTML
+    <head>
+      <meta charset="UTF-8">
+			<title>Ferris Wheel</title>
+      <link rel="stylesheet" href="./styles.css">
+
+		<style>
+			.wheel {
+			 border: 2px solid black;
+			 border-radius: 50%;
+			 margin-left: 50px;
+			 position: absolute;
+       height: 55vw;
+       width: 55vw;
+       max-height: 500px;
+       max-width: 500px;
+       animation-name: wheel; //This property is linked to @keyframes rule to a CSS selector. Name must match the one in @keyframes rule
+       animation-duration: 10s; //Time can specified in seconds or milliseconds 
+       animation-iteration-count: infinite; //Property sets how many times your animation should repeat. Can be number of to infinite
+       animation-timing-function: linear; //Set to linear for wheel animation to run at the same rate from start to finish
+			} 
+
+			.line {
+			 background-color: black;
+       width: 50%;
+       height: 2px;
+			 left: 50%;
+       top: 50%;
+       transform-origin: 0% 0%; // Set the point around where CSS transformation applied
+      }
+
+      .line:nth-of-type(2){
+       transform: rotate(60deg); //transform property allows manipulation of the sape of an element. rotate(60deg) value rotates the element around its transform-origin point bhy 60 deg clockwise
+      }
+
+      .line:nth-of-type(3) {
+       transform: rotate(120deg);
+      }
+
+      .line:nth-of-type(4) {
+       transform: rotate(180deg);
+      }
+
+      .line:nth-of-type(5) {
+       transform: rotate(240deg);
+      }
+
+      .line:nth-of-type(6) {
+       transform: rotate(300deg);
+      }
+
+      .cabin {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%; //This will set the origin point to be offset 50% from the left and 0% from the top, placing it in the middle of the top edge of the element
+       animation: cabins 10s ease-in-out infinite; //can put them all together bc already created 4 different properties in .wheel selector. linear is replaced by ease-in-out to make the swinging more natural
+      }
+
+      .cabin:nth-of-type(1) {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%;
+       right: -8.5%;
+       top: 50%;
+      }
+
+      .cabin:nth-of-type(2) {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%;
+       right: 17%;
+       top: 93.5%;
+      }
+
+      .cabin:nth-of-type(3) {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%;
+       right: 67%;
+       top: 93.5%;
+      }
+
+      .cabin:nth-of-type(4) {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%;
+       left: -8.5%;
+       top: 50%;
+      }
+
+      .cabin:nth-of-type(5) {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%;
+       left: 17%;
+       top: 7%;
+      }
+
+      .cabin:nth-of-type(6) {
+       background-color: red;
+       width: 20%;
+       height: 20%;
+       position: absolute;
+       border: 2px solid;
+       transform-origin: 50% 0%;
+       right: 17%;
+       top: 7%;
+      }
+
+       @keyframes wheel{
+				0% {
+					transform: rotate(0deg);
+	       }
+
+        100% {
+					transform: rotate(360deg);
+	       }
+	      }
+
+       @keyframes cabins {
+        0% {
+         transform: rotate(0deg)
+        }
+
+        25% {
+         background-color: yellow;
+        }
+
+        50% {
+         background-color: purple; 
+        }
+
+        75% {
+         background-color: yellow;
+        }
+
+        100% {
+         transform: rotate(-360deg)
+         }
+        }
+
+		</style>
+
+    </head>
+      <body>
+        <div class ="wheel">
+      <span class ="line"></span>
+      <span class ="line"></span>
+      <span class ="line"></span>
+      <span class ="line"></span>
+      <span class ="line"></span>
+      <span class ="line"></span>
+
+			<div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+      <div class="cabin"></div>
+    </div>
+      </body>
+  </html>
